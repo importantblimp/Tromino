@@ -48,11 +48,20 @@ public class Main
 		trominoes.put(p, t);
 	}
 
+	/**
+	 * Automatically tile the current board.
+	 */
 	public void tile()
 	{
 		tile(new Position(0,0), maximumAllowedPosition);
 	}
 
+	/**
+	 * A well known divide and conquer algorithm for tiling deficient boards.
+	 *
+	 * @param start The starting position of the region as defined by Position.between.
+	 * @param end The ending position of the region as defined by Position.between.
+	 */
 	private void tile(Position start, Position end)
 	{
 		if (isTwoByTwo(start, end))
