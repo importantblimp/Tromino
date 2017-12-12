@@ -118,6 +118,21 @@ public class Main
 		return Optional.of(new Pair<Position, Tromino> (center, toAdd));
 	}
 
+	/**
+	 * Find a deficient square within a block.
+	 * 
+	 * There are two types of deficient square:
+	 * The square that is introduced on creation of the board, this is unique
+	 * and is stored in `deficient`.
+	 * 
+	 * A single square from another tromino that is within the space created
+	 * by `start` and `end` - this is guaranteed to be present via the algorithm
+	 * but the caller checks for presence.
+	 * 
+	 * @param start The starting position of the area that contains a deficient square.
+	 * @param end The ending position of the area that contains a deficient square.
+	 * @return The only deficient square within the area as defined by Position.between.
+	 */
 	private Optional<Position> findDeficientSquare(Position start, Position end)
 	{
 		// THE deficient square
