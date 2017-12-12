@@ -26,6 +26,23 @@ public class Main
 		maximumAllowedPosition = new Position (n, n);
 	}
 
+	/**
+	 * Add a given tromino to a given position.
+	 *
+	 * Using this function allows the caller to (for example):
+	 * Tile their own board
+	 * Partially tile a board then call tile() to have the 
+	 * algorithm finish the board, if possible.
+	 * 
+	 * 
+	 * No error checking is done on the provided position or tromino.
+	 * No guarantees are given to the tileability of the modified board.
+	 * 
+	 * @param t The trominio to add.
+	 * @param p The position to add the tromino to.
+	 * 
+	 * See Tromino.java for an explanation of tromino characteristics. 
+	 */
 	public void addTromino(Tromino t, Position p)
 	{
 		trominoes.put(p, t);
