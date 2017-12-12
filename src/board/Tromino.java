@@ -77,8 +77,8 @@ public enum Tromino implements Function<Position, List<Position>>
 	UL (p -> {
 		List<Position> l = new ArrayList<>();
 		l.add(new Position(p.getX() - 1, p.getY()));
-		l.add(new Position(p.getX() - 1, p.getY() - 1));
 		l.add(p);
+		l.add(new Position(p.getX() - 1, p.getY() - 1));
 		return l;
 	}),
 	
@@ -93,8 +93,8 @@ public enum Tromino implements Function<Position, List<Position>>
 	LL (p -> {
 		List<Position> l = new ArrayList<>();
 		l.add(new Position(p.getX() - 1, p.getY()));
-		l.add(new Position(p.getX() - 1, p.getY() - 1));
 		l.add(new Position(p.getX(), p.getY() - 1));
+		l.add(new Position(p.getX() - 1, p.getY() - 1));
 		return l;
 	});
 	
