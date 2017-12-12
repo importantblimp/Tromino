@@ -12,6 +12,14 @@ public class Main
 	private final Position deficient;
 	private final Position maximumAllowedPosition;
 
+	/**
+	 * Create a new board to be tiled.
+	 * 
+	 * @param n The board size in squares. Must be a power of 2.
+	 * @param missing The missing square on the board.
+	 * 
+	 * These restrictions are necessary to guarantee a tiling of the board.
+	 */
 	public Main(int n, Position missing)
 	{
 		deficient = missing;
