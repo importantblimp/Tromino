@@ -42,13 +42,10 @@ public class View extends JFrame
 		
 		setResizable(false);
 		setVisible(true);
-		
-		
 	}
 	
 	private class Canvas extends JPanel
 	{
-		
 		private final Dimension squareSize;
 		private final int borderSize;
 		
@@ -70,13 +67,14 @@ public class View extends JFrame
 		{
 			List<Color> c = new ArrayList<>();
 			Random rand = new Random();
+			
 			for (int i = 0; i < (squareDimenions * squareDimenions) / 3; i++)
 			{
 				int x = 30;
 				int y = 225;
 				c.add(new Color(x + rand.nextInt(y), x + rand.nextInt(y), x + rand.nextInt(y)));
-				
 			}
+			
 			return c;
 		}
 		

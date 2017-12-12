@@ -13,7 +13,6 @@ import board.Tromino;
 
 public class TwoByTwo
 {
-
 	@Test
 	public void deficientSquare_ZeroZero_UpperRight()
 	{
@@ -54,22 +53,6 @@ public class TwoByTwo
 		assertTrue(p.get().right().equals(Tromino.LR));
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Test
 	public void deficientSquare_IsTrominoPiece_LLOneOne_LL()
 	{
@@ -107,10 +90,5 @@ public class TwoByTwo
 		
 		assertTrue(p.get().left().equals(new Position(1, 3)));
 		assertTrue(p.get().right().equals(Tromino.UL));
-	}
-	
-	
-	
-	
-	
+	}	
 }

@@ -4,24 +4,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import java.util.Optional;
 
 public class Main
 {
-
-
 	private final Map<Position, Tromino> trominoes = new HashMap<>();
 	private final Position deficient;
 	private final Position maximumAllowedPosition;
-
 
 	public Main(int n, Position missing)
 	{
 		deficient = missing;
 		maximumAllowedPosition = new Position (n, n);
 	}
-
 
 	public void addTromino(Tromino t, Position p)
 	{
@@ -85,12 +80,10 @@ public class Main
 		}
 	}
 
-
 	private boolean hasADeficientSquare(Position start, Position end)
 	{
 		return findDeficientSquare(start, end).isPresent();
 	}
-
 
 	public Map<Position, Tromino> getTrominoes()
 	{
@@ -105,7 +98,6 @@ public class Main
 		}
 
 		Position center = new Position(start.getX() + end.getX() - start.getX() - 1, start.getY() + end.getY() - start.getY() - 1);
-
 
 		Optional<Position> deficientSquare = findDeficientSquare(start, end);
 
@@ -150,7 +142,6 @@ public class Main
 				{
 					return Optional.of(p);
 				}
-
 			}
 		}
 
@@ -158,12 +149,10 @@ public class Main
 		return Optional.empty();
 	}
 
-
 	private boolean isTwoByTwo(Position start, Position end)
 	{
 		return end.getX() - start.getX() == 2 && end.getY() - start.getY() == 2;
 	}
-
 
 	private Tromino noOverlap(Position d, Position p)
 	{
@@ -174,7 +163,7 @@ public class Main
 				return t;
 			}
 		}
-
+		
 		return null;
 	}
 
@@ -252,7 +241,5 @@ public class Main
 				+ "2 0 0\n"
 				+ "Similarly, a 2x2 with the square in the top right woule be:\n"
 				+ "2 1 1";
-		
-
 	}
 }

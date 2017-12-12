@@ -44,8 +44,6 @@ public class Position
 	
 	public boolean between(Position a, Position b)
 	{
-		
-		
 		Position start = new Position(Math.min(a.x, b.x), Math.min(a.y, b.y));
 		Position end = new Position(Math.max(a.x, b.x), Math.max(a.y, b.y));
 		
