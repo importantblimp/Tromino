@@ -199,6 +199,14 @@ public class Main
 		return Optional.empty();
 	}
 
+	/**
+	 * Determine whether the shape produced by a start and end point is a two by two square.
+	 * Squares made on the negative axis are treated as invalid and not a two by two square.
+	 * 
+	 * @param start The starting position of the square.
+	 * @param end The ending position of the square.
+	 * @return True iff the square positions are positive and the square is a two by two.
+	 */
 	private boolean isTwoByTwo(Position start, Position end)
 	{
 		return end.getX() - start.getX() == 2 && end.getY() - start.getY() == 2;
