@@ -212,6 +212,13 @@ public class Main
 		return end.getX() - start.getX() == 2 && end.getY() - start.getY() == 2;
 	}
 
+	/**
+	 * If the algorithm is implemented correctly there is a 
+	 * tromino that does not overlap.
+	 * @param d The location of the deficient square.
+	 * @param p The center of the tromino to add.
+	 * @return A tromino that does not overlap the deficient square starting at p.
+	 */
 	private Tromino noOverlap(Position d, Position p)
 	{
 		for (Tromino t : Tromino.values())
