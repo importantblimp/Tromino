@@ -114,6 +114,13 @@ public class Main
 		}
 	}
 
+	/**
+	 * Determine whether there is a deficient square within a range.
+	 * See also findDeficientSquare.
+	 * @param start The starting position as defined by findDeficientSquare
+	 * @param end The ending position as defined by findDeficientSquare
+	 * @return True iff a deficient square is present within the range, false otherwise.
+	 */
 	private boolean hasADeficientSquare(Position start, Position end)
 	{
 		return findDeficientSquare(start, end).isPresent();
