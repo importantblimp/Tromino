@@ -131,6 +131,15 @@ public class Main
 		return trominoes;
 	}
 
+	/**
+	 * Tile a deficient two by two square.
+	 * 
+	 * @throws IllegalArgumentException Iff the provided square is not two by two.
+	 * @throws IllegalStateException Iff the square does not contain a deficient square.
+	 * @param start The starting position of the tiles.
+	 * @param end The ending position of the tiles.
+	 * @return The position and tromino required to tile the provided two by two square.
+	 */
 	public Optional<Pair<Position, Tromino>> tileTwoByTwo(Position start, Position end)
 	{
 		if (!isTwoByTwo(start, end))
