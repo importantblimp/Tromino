@@ -232,6 +232,13 @@ public class Main
 		return null;
 	}
 
+	/**
+	 * @param t The tromino.
+	 * @param p The position of the center of the tromino.
+	 * @param d The position of a deficient square.
+	 * @return True iff the provided tromino, at position p overlaps the deficient square
+	 * or overlaps an existing tromino on the board.
+	 */
 	private boolean overlaps(Tromino t, Position p, Position d)
 	{
 		List<Position> trominoPieces = t.apply(p);
