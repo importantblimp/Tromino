@@ -286,11 +286,23 @@ public class Main
 		}
 	}
 	
+	/**
+	 * Determine whether a position is within board size.
+	 * The board's valid positions are (0, 0) to (n - 1, n - 1).
+	 * @param deficient The position of the square to test.
+	 * @param boardSize The size of the board (n).
+	 * @return True iff the board is within (0, 0) and (n - 1, n - 1) inclusive, false otherwise.
+	 */
 	private static boolean withinBounds(Position deficient, int boardSize)
 	{
 		return deficient.between(new Position(0,0), new Position(boardSize, boardSize));
 	}
 
+	/**
+	 * Determine whether an integer is a positive power of two.
+	 * @param n The integer to test.
+	 * @return True iff n is a positive power of two, false otherwise.
+	 */
 	private static boolean positivePowerOfTwo(int n)
 	{
 		// https://stackoverflow.com/questions/19383248/find-if-a-number-is-a-power-of-two-without-math-function-or-log-function
