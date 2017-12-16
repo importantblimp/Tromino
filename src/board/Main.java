@@ -309,12 +309,20 @@ public class Main
 		return (n > 0) && ((n & (n - 1)) == 0);
 	}
 
+	/**
+	 * Print a provided message to standard out, and exit with the provided exit code.
+	 * @param message The message to print.
+	 * @param exitCode The exit code to exit with.
+	 */
 	private static void printAndExit(String message, int exitCode)
 	{
 		System.err.println(message);
 		System.exit(exitCode);
 	}
 	
+	/**
+	 * @return Human readable usage information for the program.
+	 */
 	private static String usageInformation()
 	{
 		return ""
