@@ -11,6 +11,22 @@ import board.Pair;
 import board.Position;
 import board.Tromino;
 
+/**
+ * A set of tests covering the four base cases for tromino tiling:
+ * A deficient square at:
+ * Top left
+ * Top right
+ * Bottom right
+ * Bottom left
+ * and their respective solutions.
+ * 
+ * The naming convention is:
+ * state_property_solution
+ * 
+ * For example
+ * deficientSquare_ZeroOne_LowerRight
+ * means the deficient square is at (0, 1) and the solution is a LR tromino.  
+ */
 public class TwoByTwo
 {
 	@Test
