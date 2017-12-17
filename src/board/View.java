@@ -13,6 +13,10 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * A basic graphical display for a tromino board.
+ * The view tiles the board after creating it using Main.tile.
+ */
 public class View extends JFrame
 {
 	private final Canvas canvas;
@@ -63,6 +67,12 @@ public class View extends JFrame
 			m.tile();
 		}
 		
+		/**
+		 * Generate random colours in a mid-range.
+		 * In this case, 30-255 for rgb.
+		 * @param squareDimenions The size of the board in squares.
+		 * @return Newly generated colours.
+		 */
 		private List<Color> generateColours(int squareDimenions)
 		{
 			List<Color> c = new ArrayList<>();
@@ -78,6 +88,9 @@ public class View extends JFrame
 			return c;
 		}
 		
+		/**
+		 * Draw each of the generated trominos using generated colours.
+		 */
 		public void paint(Graphics gra)
 		{
 			gra.setColor(Color.black);
