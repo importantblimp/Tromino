@@ -67,44 +67,5 @@ public class TwoByTwo
 		
 		assertTrue(p.get().left().equals(new Position(1, 1)));
 		assertTrue(p.get().right().equals(Tromino.LR));
-	}
-	
-	@Test
-	public void deficientSquare_IsTrominoPiece_LLOneOne_LL()
-	{
-		Main m = new Main(4, new Position(3, 3));
-		
-		m.addTromino(Tromino.LL, new Position(2, 2));
-		
-		Optional<Pair<Position, Tromino>> p = m.tileTwoByTwo(new Position(0, 0), new Position(2, 2));
-		
-		assertTrue(p.get().left().equals(new Position(1, 1)));
-		assertTrue(p.get().right().equals(Tromino.LL));
-	}
-	
-	@Test
-	public void deficientSquare_IsTrominoPiece_LLOneOne_LR()
-	{
-		Main m = new Main(4, new Position(3, 3));
-		
-		m.addTromino(Tromino.LL, new Position(2, 2));
-		
-		Optional<Pair<Position, Tromino>> p = m.tileTwoByTwo(new Position(2, 0), new Position(4, 2));
-		
-		assertTrue(p.get().left().equals(new Position(3, 1)));
-		assertTrue(p.get().right().equals(Tromino.LR));
-	}
-	
-	@Test
-	public void deficientSquare_IsTrominoPiece_LLOneOne_UL()
-	{
-		Main m = new Main(4, new Position(3, 3));
-		
-		m.addTromino(Tromino.LL, new Position(2, 2));
-		
-		Optional<Pair<Position, Tromino>> p = m.tileTwoByTwo(new Position(0, 2), new Position(2, 4));
-		
-		assertTrue(p.get().left().equals(new Position(1, 3)));
-		assertTrue(p.get().right().equals(Tromino.UL));
 	}	
 }
