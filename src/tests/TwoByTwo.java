@@ -67,5 +67,40 @@ public class TwoByTwo
 		
 		assertTrue(p.get().left().equals(new Position(1, 1)));
 		assertTrue(p.get().right().equals(Tromino.LR));
-	}	
+	}
+	
+	@Test
+	public void notTwoByTwo_IllegalArgumentException_IsThrown()
+	{
+		Main m = new Main(4, new Position(1, 1));
+		
+		try
+		{
+			Optional<Pair<Position, Tromino>> p = m.tileTwoByTwo(new Position(0,0), new Position(4,4));
+		}
+		catch (IllegalArgumentException e)
+		{
+			return;
+		}
+
+		fail("An illegal argument exception should have been thrown for a non 2x2 board");
+	}
+	
+	@Test
+	public void deficientSquareOutOfBounds_IllegalStateException_IsThrown()
+	{
+		Main m = new Main(4, new Position(3, 3)); // Legal board
+		
+		try
+		{
+			// Legal locations within board, but does not contain a deficient square 
+			Optional<Pair<Position, Tromino>> p = m.tileTwoByTwo(new Position(0,0), new Position(2,2));
+		}
+		catch (IllegalStateException e)
+		{
+			return;
+		}
+
+		fail("An illegal state exception should have been thrown for a non present deficient square in provided region");
+	}
 }
