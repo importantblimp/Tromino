@@ -71,6 +71,30 @@ public class Main
 		
 		return Optional.of(newMain);
 	}
+	
+	/**
+	 * Remove a tromino on the board.
+	 * 
+	 * The existing Main is not modified.
+	 * 
+	 * @param center The center position of the tromino. See Tromino.java.
+	 * @return A new Main with the tromino removed is returned.
+	 * If there is no tromino centered at the position, Optional.empty is returned.
+	 */
+	public Optional<Main> removeTromino(Position center)
+	{
+		if (!trominoes.containsKey(center))
+		{
+			return Optional.empty();
+		}
+		
+		Main newMain = new Main(maximumAllowedPosition.getX(), deficient);
+		
+		newMain.trominoes.putAll(trominoes);
+		newMain.trominoes.remove(center);
+		
+		return Optional.of(newMain);
+	}
 
 	/**
 	 * Automatically tile the current board.
