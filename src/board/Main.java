@@ -16,12 +16,23 @@ public class Main
 	 * Create a new board to be tiled.
 	 * 
 	 * @param n The board size in squares. Must be a power of 2.
-	 * @param missing The missing square on the board.
+	 * @param missing The missing square on the board. Must be between 0 and n - 1 in both dimensions.
 	 * 
+	 * @throws IllegalArgumentException Iff either restriction is not met.
 	 * These restrictions are necessary to guarantee a tiling of the board.
 	 */
 	public Main(int n, Position missing)
 	{
+		if (!positivePowerOfTwo(n))
+		{
+			throw new IllegalArgumentException("Board size must be a positive power of two");
+		}
+
+		if (!withinBounds(missing, n))
+		{
+			throw new IllegalArgumentException("Missing square must be within the board");
+		}
+		
 		deficient = missing;
 		maximumAllowedPosition = new Position (n, n);
 	}
