@@ -34,18 +34,31 @@ public class Main
 	 * Partially tile a board then call tile() to have the 
 	 * algorithm finish the board, if possible.
 	 * 
+	 * The tromino may not be added if the position is invalid or 
+	 * the tromino overlaps an existing piece on the board.
 	 * 
-	 * No error checking is done on the provided position or tromino.
 	 * No guarantees are given to the tileability of the modified board.
 	 * 
 	 * @param t The trominio to add.
 	 * @param p The position to add the tromino to.
+	 * @return The new board that contains the provided tromino, or Optional.empty
+	 * if the tromino could not be added.
 	 * 
 	 * See Tromino.java for an explanation of tromino characteristics. 
 	 */
-	public void addTromino(Tromino t, Position p)
+	public Optional<Main> addTromino(Tromino t, Position p)
 	{
-		trominoes.put(p, t);
+		if (overlaps(t, p, deficient))
+		{
+			return Optional.empty();
+		}
+		
+		Main newMain = new Main(maximumAllowedPosition.getX(), deficient);
+		
+		newMain.trominoes.putAll(trominoes);
+		newMain.trominoes.put(p, t);
+		
+		return Optional.of(newMain);
 	}
 
 	/**
@@ -88,19 +101,19 @@ public class Main
 
 			if (hasADeficientSquare(TLS, TLE))
 			{
-				addTromino(Tromino.LR, middle);
+				trominoes.put(middle, Tromino.LR);
 			}
 			else if (hasADeficientSquare(TRS, TRE))
 			{
-				addTromino(Tromino.LL, middle);
+				trominoes.put(middle, Tromino.LL);
 			}
 			else if (hasADeficientSquare(LLS, LLE))
 			{
-				addTromino(Tromino.UR, middle);
+				trominoes.put(middle, Tromino.UR);
 			}
 			else if (hasADeficientSquare(LRS, LRE))
 			{
-				addTromino(Tromino.UL, middle);
+				trominoes.put(middle, Tromino.UL);
 			}
 			else
 			{
