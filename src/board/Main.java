@@ -36,6 +36,20 @@ public class Main
 		deficient = missing;
 		maximumAllowedPosition = new Position (n, n);
 	}
+	
+	/**
+	 * An alternative constructor for creating a copy of a Main.
+	 * @param m The main to copy.
+	 */
+	private Main(Main m)
+	{
+		// The boards are n x n so any value from maximum allowed position is valid.
+		// Positions are immutable, so there is no need to clone deficient.
+		this(m.maximumAllowedPosition.getX(), m.deficient);
+		
+		// Trominoes are enums which are immutable so no cloning is required
+		trominoes.putAll(m.trominoes);
+	}
 
 	/**
 	 * Add a given tromino to a given position.
@@ -64,9 +78,7 @@ public class Main
 			return Optional.empty();
 		}
 		
-		Main newMain = new Main(maximumAllowedPosition.getX(), deficient);
-		
-		newMain.trominoes.putAll(trominoes);
+		Main newMain = new Main(this);
 		newMain.trominoes.put(p, t);
 		
 		return Optional.of(newMain);
@@ -88,9 +100,7 @@ public class Main
 			return Optional.empty();
 		}
 		
-		Main newMain = new Main(maximumAllowedPosition.getX(), deficient);
-		
-		newMain.trominoes.putAll(trominoes);
+		Main newMain = new Main(this);
 		newMain.trominoes.remove(center);
 		
 		return Optional.of(newMain);
