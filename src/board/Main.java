@@ -1,5 +1,6 @@
 package board;
 
+import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,11 @@ public class Main
 		
 		// Trominoes are enums which are immutable so no cloning is required
 		trominoes.putAll(m.trominoes);
+	}
+	
+	public Dimension getBoardDimensions()
+	{
+		return new Dimension(maximumAllowedPosition.getX(), maximumAllowedPosition.getY());
 	}
 
 	/**
@@ -332,7 +338,7 @@ public class Main
 				printAndExit("Missing square must be within the board.", -4);
 			}
 			
-			new View(boardSize, deficient);
+			new View(new Main(boardSize, deficient));
 		}
 		catch (ArrayIndexOutOfBoundsException e)
 		{

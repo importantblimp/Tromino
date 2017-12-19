@@ -26,14 +26,14 @@ public class View extends JFrame
 	
 	private final Dimension windowSize;
 	
-	public View(int boardSize, Position missing)
+	public View(Main m)
 	{
 		super("Tromino tilier");
 		
 		windowSize = new Dimension(1000, 1000);
 		
-		m = new Main(boardSize, missing);
-		board = new Dimension(boardSize, boardSize);
+		this.m = m;
+		board = m.getBoardDimensions();
 		
 		canvas = new Canvas();
 		
