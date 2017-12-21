@@ -1,11 +1,14 @@
 package board;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.Random;
+import java.util.function.Function;
 
 public class Main
 {
@@ -338,7 +341,22 @@ public class Main
 				printAndExit("Missing square must be within the board.", -4);
 			}
 			
-			new View(new Main(boardSize, deficient));
+			Main board = new Main(boardSize, deficient);
+			board.tile();
+			
+			
+			Dimension windowSize = new Dimension(1000, 1000);
+			
+			final int minColourValue = 30;
+			final int maxColour = 225;
+			Random r = new Random();
+			
+			Function<Integer, Color> rgb = i -> new Color(minColourValue + r.nextInt(maxColour),
+					minColourValue + r.nextInt(maxColour),
+					minColourValue + r.nextInt(maxColour));
+			
+			
+			new View(new Canvas(board, windowSize, Canvas.generateColours(board.getBoardDimensions(), rgb)));
 		}
 		catch (ArrayIndexOutOfBoundsException e)
 		{
