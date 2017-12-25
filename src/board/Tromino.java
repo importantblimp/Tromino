@@ -7,18 +7,17 @@ import java.util.function.Function;
 /**
  * 
  * A tromino is represented by the positions of it's three squares.
- * The position for each square is counted from the bottom left to the top right
- * and stretches exactly 1 square.
- * The squares are counted from the top left in a clockwise direction.
+ * Each square is defined by it's bottom left, with it's top right being
+ * implicit and 1 position away in the x and y direction.
+ * The squares of a tromino are counted from the top left square in a clockwise direction.
  * 
  * UR -> Upper right
  * UL -> Upper left
  * LR -> Lower right
  * LL -> Lower left
  * 
- * The function associated with the tromino returns the starting positions of the squares
- * that it is comprised of given some position on the board.
- * 
+ * The function associated with the tromino returns the starting position of the squares
+ * that it is comprised of relative to some position on the board.
  * 
  * Upper right has it's corner facing the upper right  
  *   __
@@ -26,8 +25,6 @@ import java.util.function.Function;
  *   /
  *  /
  *  
- *  The 'starting position' for the tromino is always the center.
- * 
  * The UR square is therefore:
  * 
  * _______a______b
@@ -38,11 +35,12 @@ import java.util.function.Function;
  *        |      |
  *        f______|
  *        
- * Where d is the given starting position, (c,a) is the first square in the tromino,
- * although it is only counted from c. (d,b) is the second, and (f,e) is the third.
- * Again, both being counted only from their starting postiions.
+ * UR is centered at d, c is the first square in the tromino, d is the second,
+ * and f is the third.
+ * a, b, and e are the top right of the first, second, and third squares respectively and
+ * are implicit.
  * 
- * 
+ * For example an upper right tromino at position (1,2) will have squares at (0, 2), (1, 2), (1, 1).
  * 
  * Similarly, UL is:
  * 
@@ -59,10 +57,31 @@ import java.util.function.Function;
  * |      |
  * f______|
  * 
- * Where again d is the starting position. The three positions are:
+ * Where again d is the starting position of the tromino. The three positions of the squares are:
  * c
  * d
  * f
+ * 
+ * LL is the only tromino that does not have a square starting at it's centre:
+ * 
+ *    /
+ *   /
+ * |/__
+ * 
+ * _______a
+ * |      |
+ * |      |
+ * b______c______d
+ * |      |      |
+ * |      |      |
+ * e______f______|
+ * 
+ * c is the staring position of the tromino, and the three positions of the squares are:
+ * b
+ * f
+ * e
+ * 
+ * Note that f comes before e because the squares are counted clockwise from the top left.
  */
 public enum Tromino implements Function<Position, List<Position>>
 {
